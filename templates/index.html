@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>ASD Detection</title>
+
+</head>
+
+<body>
+
+    <h1>ASD Detection System</h1>
+
+    <p>
+        Upload an image for model prediction.
+    </p>
+
+    <form
+        action="/predict"
+        method="POST"
+        enctype="multipart/form-data"
+    >
+
+        <input
+            type="file"
+            name="image"
+            accept="image/*"
+            required
+        >
+
+        <br><br>
+
+        <button type="submit">
+            Predict
+        </button>
+
+    </form>
+
+
+    {% if prediction %}
+
+        <hr>
+
+        <h2>Prediction Result</h2>
+
+        <p>
+            <strong>Image:</strong>
+            {{ filename }}
+        </p>
+
+        <p>
+            <strong>Prediction:</strong>
+            {{ prediction }}
+        </p>
+
+        <p>
+            <strong>Confidence:</strong>
+            {{ confidence }}
+        </p>
+
+    {% endif %}
+
+
+</body>
+
+</html>
